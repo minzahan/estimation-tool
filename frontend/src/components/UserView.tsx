@@ -29,7 +29,7 @@ const UserView: React.FC<Props> = ({
         const interval = setInterval(async () => {
             try {
                 const response = await axios.get(
-                    `http://127.0.0.1:8000/get-session-state/${sessionId}`
+                    `https://estimation-tool-backend.onrender.com/get-session-state/${sessionId}`
                 );
                 const { task_name, estimates, revealed } = response.data;
 
@@ -54,7 +54,7 @@ const UserView: React.FC<Props> = ({
 
         try {
             // Submit the user's estimate to the backend
-            await axios.post(`http://127.0.0.1:8000/submit-estimate/${sessionId}`, {
+            await axios.post(`https://estimation-tool-backend.onrender.com/submit-estimate/${sessionId}`, {
                 display_name: displayName,
                 estimate: Number(estimate),
             });

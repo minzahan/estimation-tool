@@ -49,7 +49,7 @@ const App: React.FC = () => {
       const interval = setInterval(async () => {
         try {
           const response = await axios.get<SessionResponse>(
-              `http://127.0.0.1:8000/get-session-state/${session.session_id}`
+              `https://estimation-tool-backend.onrender.com/get-session-state/${session.session_id}`
           );
           console.log(response.data);
           setSession(response.data);
@@ -69,7 +69,7 @@ const App: React.FC = () => {
   const createSession = async (adminName: string, teamName: string) => {
     try {
       const response = await axios.post<SessionResponse>(
-          "http://127.0.0.1:8000/create-session/",
+          "https://estimation-tool-backend.onrender.com/create-session/",
           { admin_name: adminName, team_name: teamName }
       );
       setSession(response.data);
@@ -83,7 +83,7 @@ const App: React.FC = () => {
   const joinSession = async (displayName: string, sessionId: string) => {
     try {
       const response = await axios.post<SessionResponse>(
-          `http://127.0.0.1:8000/join-session/${sessionId}`,
+          `https://estimation-tool-backend.onrender.com/join-session/${sessionId}`,
           { display_name: displayName }
       );
       setSession(response.data);
@@ -98,7 +98,7 @@ const App: React.FC = () => {
   const handleEndSession = async () => {
     if (session) {
       try {
-        await axios.delete(`http://127.0.0.1:8000/end-session/${session.session_id}`);
+        await axios.delete(`https://estimation-tool-backend.onrender.com/end-session/${session.session_id}`);
       } catch (error) {
         console.error("Failed to end session on backend, clearing local:", error);
       }
@@ -117,7 +117,7 @@ const App: React.FC = () => {
 
       try {
         await axios.post(
-            `http://127.0.0.1:8000/leave-session/${session.session_id}`,
+            `https://estimation-tool-backend.onrender.com/leave-session/${session.session_id}`,
             { display_name: displayName }
         );
       } catch (error) {
