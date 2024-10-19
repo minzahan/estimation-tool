@@ -26,7 +26,7 @@ const AdminView: React.FC<Props> = ({
         const interval = setInterval(async () => {
             try {
                 const response = await axios.get(
-                    `http://127.0.0.1:8000/get-session-state/${sessionId}`
+                    `https://estimation-tool-backend.onrender.com/get-session-state/${sessionId}`
                 );
                 setEstimates(response.data.estimates);
                 setRevealed(response.data.revealed);
@@ -41,7 +41,7 @@ const AdminView: React.FC<Props> = ({
     const startEstimation = async () => {
         try {
             // Send the task name to the backend to notify users
-            await axios.post(`http://127.0.0.1:8000/set-task/${sessionId}`, {
+            await axios.post(`https://estimation-tool-backend.onrender.com/set-task/${sessionId}`, {
                 task_name: taskName,
             });
             setIsModalOpen(false); // Close the modal after task starts
@@ -52,7 +52,7 @@ const AdminView: React.FC<Props> = ({
 
     const revealEstimates = async () => {
         try {
-            await axios.post(`http://127.0.0.1:8000/reveal-estimates/${sessionId}`);
+            await axios.post(`https://estimation-tool-backend.onrender.com/reveal-estimates/${sessionId}`);
             setRevealed(true); // Set revealed to true locally
         } catch (error) {
             console.error("Failed to reveal estimates:", error);
@@ -70,7 +70,7 @@ const AdminView: React.FC<Props> = ({
 
     const clearSessionState = async () => {
         try {
-            await axios.post(`http://127.0.0.1:8000/clear-session-state/${sessionId}`);
+            await axios.post(`https://estimation-tool-backend.onrender.com/clear-session-state/${sessionId}`);
             setTaskName(""); // Reset task name
             setEstimates({}); // Clear estimates
             setRevealed(false); // Reset reveal state
