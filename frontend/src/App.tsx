@@ -143,7 +143,8 @@ const App: React.FC = () => {
     // Default home view with buttons
     return (
         <div className="app-container">
-          <h1>Estimation App</h1>
+          <h2>AC Hackathon 2024 Presents:</h2>
+          <h1>Estimation Tool</h1>
           <button onClick={() => setView("create")}>Create a Session</button>
           <button onClick={() => setView("join")}>Join a Session</button>
         </div>
