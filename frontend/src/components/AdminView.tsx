@@ -93,11 +93,15 @@ const AdminView: React.FC<Props> = ({
                 ))}
             </ul>
 
-            <button onClick={() => setIsModalOpen(true)}>Estimate a Task</button>
+            <div className="button-group-horizontal">
+                <button onClick={() => setIsModalOpen(true)}>
+                    Estimate a Task
+                </button>
 
-            <button className="end-session" onClick={onEndSession}>
-                End Session
-            </button>
+                <button className="end-session" onClick={onEndSession}>
+                    End Session
+                </button>
+            </div>
 
             {isModalOpen && (
                 <div className="modal">
@@ -108,15 +112,17 @@ const AdminView: React.FC<Props> = ({
                         value={taskName}
                         onChange={(e) => setTaskName(e.target.value)}
                     />
-                    <button onClick={startEstimation}>Get Estimates</button>
-                    <button onClick={() => setIsModalOpen(false)}>Cancel</button>
+                    <div className="button-group">
+                        <button onClick={startEstimation}>Get Estimates</button>
+                        <button onClick={() => setIsModalOpen(false)}>Cancel</button>
+                    </div>
                 </div>
             )}
 
             {allUsersSubmitted && !revealed && (
-                <button onClick={() => revealEstimates()}>
-                    Reveal Estimates
-                </button>
+                <div className="center-button">
+                    <button onClick={revealEstimates}>Reveal Estimates</button>
+                </div>
             )}
 
             {revealed && (
@@ -129,11 +135,13 @@ const AdminView: React.FC<Props> = ({
                             </li>
                         ))}
                     </ul>
-                    <button onClick={clearSessionState}>Start New Task</button>
+                    <div className="center-button">
+                        <button onClick={clearSessionState}>Start New Task</button>
+                    </div>
                 </div>
             )}
         </div>
     );
-};
+}
 
 export default AdminView;

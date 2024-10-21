@@ -79,9 +79,11 @@ const UserView: React.FC<Props> = ({
                 ))}
             </ul>
 
-            <button className="leave-session" onClick={onLeaveSession}>
-                Leave Session
-            </button>
+            <div className="center-button">
+                <button className="leave-session" onClick={onLeaveSession}>
+                    Leave Session
+                </button>
+            </div>
 
             {isModalOpen && (
                 <div className="modal">

@@ -1,5 +1,3 @@
-/* src/styles.css */
-
 /* Global Styles */
 body {
     margin: 0;
@@ -7,16 +5,31 @@ body {
     font-family: sans-serif;
     background-color: #fafafa;
     color: #333;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* Centering the Admin and User Containers */
 .app-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    text-align: center;
+    height: 100%;
     gap: 15px;
+}
+
+/* Admin and User Containers */
+.admin-container,
+.user-container {
+    width: 320px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
 /* Form Container */
@@ -35,6 +48,7 @@ input {
     border-radius: 4px;
 }
 
+/* Button Styles */
 button {
     padding: 10px;
     font-size: 14px;
@@ -43,23 +57,39 @@ button {
     border-radius: 4px;
     background-color: #007bff;
     color: white;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-/* Admin and User Containers */
-.admin-container,
-.user-container {
-    width: 300px;
-    padding: 15px;
+/* Modal Styles */
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Space between modal elements */
+    padding: 20px;
     background-color: white;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
 }
 
+/* Button Group in Modal */
+.modal .button-group {
+    display: flex;
+    gap: 10px; /* Add space between buttons */
+}
+
+/* List Styles */
 ul {
     list-style-type: none;
     padding: 0;
@@ -69,4 +99,17 @@ ul {
 li {
     padding: 6px 0;
     border-bottom: 1px solid #eee;
+}
+
+.button-group-horizontal {
+    display: flex;
+    flex-direction: row; /* Keep buttons in the same line */
+    gap: 10px; /* Add space between the buttons */
+    justify-content: center; /* Center align the buttons */
+}
+
+.center-button {
+    display: flex;
+    justify-content: center; /* Horizontally center the button */
+    margin-top: 10px; /* Add space above the button */
 }
